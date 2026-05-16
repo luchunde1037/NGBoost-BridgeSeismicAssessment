@@ -66,3 +66,36 @@ pip install seaborn==0.13.2
 pip install openpyxl==3.1.5
 pip install joblib==1.3.2
 ```
+---
+
+## 🚀 Quick Start
+
+### Step 1: Train NGBoost Model with SSA Optimization
+
+Run the following script to train the NGBoost model using the Sparrow Search Algorithm (SSA) for hyperparameter optimization under the Log-Normal distribution assumption:
+
+```bash
+python ngboost_train/ngboost_train_lognormal.py
+```
+
+This script will:
+- Load the training dataset from `data/`
+- Optimize NGBoost hyperparameters (learning_rate, n_estimators, minibatch_frac) using SSA
+- Save the optimized hyperparameter configurations to `code/best_model/`
+- Save the trained NGBoost model to `code/best_model/`
+
+### Step 2: Predict Bridge Seismic Response
+
+After training, run the following script to perform probabilistic prediction for EDP1-1 (pier top displacement of Pier #1):
+
+```bash
+python ngboost_pred/ngboost_pred_edp1-1.py
+```
+
+This script will:
+- Load the trained NGBoost model and optimized hyperparameters from `code/best_model/`
+- Perform probabilistic prediction on the test dataset
+- Output R², MSE, MAE, and RMSE metrics for both training and test sets
+- Save prediction results and probability distribution parameters (mean and standard deviation) to the output directory
+
+> **Note:** Pre-trained models are available in `code/best_model/`, allowing Step 2 to be run directly without retraining.
