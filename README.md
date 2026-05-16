@@ -95,7 +95,7 @@ python ngboost_pred/ngboost_pred_edp1-1.py
 This script will:
 - Load the trained NGBoost model and optimized hyperparameters from `code/best_model/`
 - Perform probabilistic prediction on the test dataset
-- Output R², MSE, MAE, and RMSE metrics for both training and test sets
+- Output R², MSE metrics for both training and test sets
 - Save prediction results and probability distribution parameters (mean and standard deviation) to the output directory
 
 > **Note:** Pre-trained models are available in `code/best_model/`, allowing Step 2 to be run directly without retraining.
